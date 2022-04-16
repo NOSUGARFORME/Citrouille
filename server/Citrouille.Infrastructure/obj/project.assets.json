@@ -1,0 +1,150 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Citrouille.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Citrouille.Domain": "1.0.0",
+          "Citrouille.Shared": "1.0.0",
+          "Citrouille.Shared.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Citrouille.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Citrouille.Application.dll": {}
+        }
+      },
+      "Citrouille.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Citrouille.Shared": "1.0.0",
+          "Citrouille.Shared.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Citrouille.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Citrouille.Domain.dll": {}
+        }
+      },
+      "Citrouille.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Citrouille.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Citrouille.Shared.dll": {}
+        }
+      },
+      "Citrouille.Shared.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Citrouille.Shared.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Citrouille.Shared.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Citrouille.Application/1.0.0": {
+      "type": "project",
+      "path": "../Citrouille.Application/Citrouille.Application.csproj",
+      "msbuildProject": "../Citrouille.Application/Citrouille.Application.csproj"
+    },
+    "Citrouille.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Citrouille.Domain/Citrouille.Domain.csproj",
+      "msbuildProject": "../Citrouille.Domain/Citrouille.Domain.csproj"
+    },
+    "Citrouille.Shared/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Citrouille.Shared/Citrouille.Shared.csproj",
+      "msbuildProject": "../Shared/Citrouille.Shared/Citrouille.Shared.csproj"
+    },
+    "Citrouille.Shared.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Citrouille.Shared.Abstractions/Citrouille.Shared.Abstractions.csproj",
+      "msbuildProject": "../Shared/Citrouille.Shared.Abstractions/Citrouille.Shared.Abstractions.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "Citrouille.Application >= 1.0.0",
+      "Citrouille.Shared >= 1.0.0",
+      "Citrouille.Shared.Abstractions >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/ivan/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/ivan/RiderProjects/Citrouille/server/Citrouille.Infrastructure/Citrouille.Infrastructure.csproj",
+      "projectName": "Citrouille.Infrastructure",
+      "projectPath": "/home/ivan/RiderProjects/Citrouille/server/Citrouille.Infrastructure/Citrouille.Infrastructure.csproj",
+      "packagesPath": "/home/ivan/.nuget/packages/",
+      "outputPath": "/home/ivan/RiderProjects/Citrouille/server/Citrouille.Infrastructure/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/ivan/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "/home/ivan/RiderProjects/Citrouille/server/Citrouille.Application/Citrouille.Application.csproj": {
+              "projectPath": "/home/ivan/RiderProjects/Citrouille/server/Citrouille.Application/Citrouille.Application.csproj"
+            },
+            "/home/ivan/RiderProjects/Citrouille/server/Shared/Citrouille.Shared.Abstractions/Citrouille.Shared.Abstractions.csproj": {
+              "projectPath": "/home/ivan/RiderProjects/Citrouille/server/Shared/Citrouille.Shared.Abstractions/Citrouille.Shared.Abstractions.csproj"
+            },
+            "/home/ivan/RiderProjects/Citrouille/server/Shared/Citrouille.Shared/Citrouille.Shared.csproj": {
+              "projectPath": "/home/ivan/RiderProjects/Citrouille/server/Shared/Citrouille.Shared/Citrouille.Shared.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
