@@ -1,4 +1,4 @@
-namespace Citrouille.Shared.Abstractions.Exceptions;
+namespace Citrouille.Shared.Exceptions;
 
 public abstract class BaseException : Exception
 {

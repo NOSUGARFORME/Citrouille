@@ -1,4 +1,4 @@
-using Citrouille.Shared.Abstractions.Exceptions;
+using Citrouille.Shared.Exceptions;
 
 namespace Citrouille.Domain.Exceptions;
 
