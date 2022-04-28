@@ -1,5 +1,5 @@
 using Citrouille.Domain.Entities;
-using Citrouille.Shared.Abstractions.Domain;
+using Citrouille.Shared.Domain;
 
 namespace Citrouille.Domain.Events;
 

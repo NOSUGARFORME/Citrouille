@@ -1,7 +1,7 @@
 using Citrouille.Domain.Events;
 using Citrouille.Domain.Exceptions;
 using Citrouille.Domain.ValueObjects;
-using Citrouille.Shared.Abstractions.Domain;
+using Citrouille.Shared.Domain;
 
 namespace Citrouille.Domain.Entities;
 
