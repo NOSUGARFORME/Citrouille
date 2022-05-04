@@ -3,12 +3,16 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
-
+    
     <ItemGroup>
-      <ProjectReference Include="..\Citrouille.Application\Citrouille.Application.csproj" />
-      <ProjectReference Include="..\Shared\Citrouille.Shared.Abstractions\Citrouille.Shared.Abstractions.csproj" />
+      <Folder Include="Services" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Citrouille.Data\Citrouille.Data.csproj" />
       <ProjectReference Include="..\Shared\Citrouille.Shared\Citrouille.Shared.csproj" />
     </ItemGroup>
 
