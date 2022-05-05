@@ -1,0 +1,1 @@
+dotnet ef migrations add <name> --context CollectionDbContext --startup-project ../Citrouille.Api/ -o Migrations -v

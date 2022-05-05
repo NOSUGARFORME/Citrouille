@@ -8,7 +8,7 @@ WORKDIR /src
 COPY ["src/Citrouille.Api/Citrouille.Api.csproj", "Citrouille.Api/"]
 COPY ["src/Citrouille.Infrastructure/Citrouille.Infrastructure.csproj", "Citrouille.Infrastructure/"]
 COPY ["src/Citrouille.Application/Citrouille.Application.csproj", "Citrouille.Application/"]
-COPY ["src/Citrouille.Domain/Citrouille.Domain.csproj", "Citrouille.Domain/"]
+COPY ["src/Citrouille.Data/Citrouille.Data.csproj", "Citrouille.Data/"]
 COPY ["src/Shared/Citrouille.Shared.Abstractions/Citrouille.Shared.Abstractions.csproj", "Citrouille.Shared.Abstractions/"]
 COPY ["src/Shared/Citrouille.Shared/Citrouille.Shared.csproj", "Citrouille.Shared/"]
 RUN dotnet restore "src/Citrouille.Api/Citrouille.Api.csproj"
