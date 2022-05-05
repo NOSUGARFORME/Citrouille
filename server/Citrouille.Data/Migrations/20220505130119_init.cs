@@ -17,22 +17,7 @@ namespace Citrouille.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "CollectionTheme",
-                schema: "CollectionSchema",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Theme = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CollectionTheme", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Tag",
+                name: "Tags",
                 schema: "CollectionSchema",
                 columns: table => new
                 {
@@ -42,7 +27,22 @@ namespace Citrouille.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tag", x => x.Id);
+                    table.PrimaryKey("PK_Tags", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Themes",
+                schema: "CollectionSchema",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Theme = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Themes", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -62,10 +62,10 @@ namespace Citrouille.Data.Migrations
                 {
                     table.PrimaryKey("PK_Collections", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Collections_CollectionTheme_ThemeId",
+                        name: "FK_Collections_Themes_ThemeId",
                         column: x => x.ThemeId,
                         principalSchema: "CollectionSchema",
-                        principalTable: "CollectionTheme",
+                        principalTable: "Themes",
                         principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -89,10 +89,10 @@ namespace Citrouille.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CollectionTags_Tag_TagId",
+                        name: "FK_CollectionTags_Tags_TagId",
                         column: x => x.TagId,
                         principalSchema: "CollectionSchema",
-                        principalTable: "Tag",
+                        principalTable: "Tags",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -208,7 +208,7 @@ namespace Citrouille.Data.Migrations
                 schema: "CollectionSchema");
 
             migrationBuilder.DropTable(
-                name: "Tag",
+                name: "Tags",
                 schema: "CollectionSchema");
 
             migrationBuilder.DropTable(
@@ -220,7 +220,7 @@ namespace Citrouille.Data.Migrations
                 schema: "CollectionSchema");
 
             migrationBuilder.DropTable(
-                name: "CollectionTheme",
+                name: "Themes",
                 schema: "CollectionSchema");
         }
     }

@@ -22,7 +22,7 @@ public sealed class CollectionCommandService : ICollectionCommandService
             .SingleOrDefaultAsync(c => c.Id == id);
     }
     
-    public async Task AddCollectionAsync(Collection collection)
+    public async Task CreateCollectionAsync(Collection collection)
     {
         collection.ThrowIfInvalid();
 

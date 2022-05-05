@@ -19,6 +19,7 @@ public class CollectionQueryService
             .Include(c => c.Items)
             .ThenInclude(i => i.Fields)
             .Include(c => c.Tags)
+            .ThenInclude(ct => ct.Tag)
             .Include(c => c.Theme)
             .Where(c => c.Id == id)
             .Select(c => c.AsDto())

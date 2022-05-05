@@ -1,6 +1,7 @@
 using Citrouille.Data;
 using Citrouille.Infrastructure.Commands;
 using Citrouille.Infrastructure.Commands.Factories;
+using Citrouille.Infrastructure.Commands.Models;
 using Citrouille.Infrastructure.Queries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,8 @@ public static class StartupExtensions
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<ICollectionReadService, CollectionReadService>();
+        services.AddScoped<ICollectionThemeReadService, CollectionCollectionThemeReadService>();
+        services.AddScoped<ICollectionTagReadService, CollectionCollectionTagReadService>();
 
         var options = configuration.GetSection("MySql").Get<DbOptions>();
         services.AddDbContext<CollectionDbContext>(ctx => 
@@ -33,6 +36,7 @@ public static class StartupExtensions
     {
         services.AddSingleton<ICollectionFactory, CollectionFactory>();
         services.AddScoped<ICollectionCommandService, CollectionCommandService>();
+        services.AddScoped<CreateCollectionService>();
 
         return services;
     }

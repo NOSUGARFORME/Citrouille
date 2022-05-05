@@ -5,7 +5,7 @@ namespace Citrouille.Infrastructure.Commands;
 
 public interface ICollectionCommandService
 {
-    Task AddCollectionAsync(Collection collection);
+    Task CreateCollectionAsync(Collection collection);
     Task AddCollectionItemAsync(AddCollectionItem command);
     Task UpdateCollectionAsync(Collection collection); // ?
     Task UpdateCollectionItemAsync(UpdateCollectionItem command);
