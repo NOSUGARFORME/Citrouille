@@ -1,6 +1,4 @@
 using Citrouille.Data.Exceptions.Tag;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Citrouille.Data.Entities;
 

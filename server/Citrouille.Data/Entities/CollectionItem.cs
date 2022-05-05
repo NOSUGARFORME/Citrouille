@@ -1,7 +1,6 @@
 using Citrouille.Data.Exceptions.CollectionItem;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Citrouille.Data.Entities;
 
@@ -34,14 +33,6 @@ public record CollectionItem
         {
             builder.ToTable("Items");
             builder.HasKey(i => i.Id);
-
-            // var fieldConverter = new ValueConverter<List<Field>, string[]>(fields => fields.Select(f => f.ToString()).ToArray(),
-            //     fields => fields.Select(Field.Create).ToList());
-            //
-            // builder
-            //     .Property(i => i.Fields)
-            //     .HasConversion(fieldConverter)
-            //     .HasColumnName("Fields");
             
             builder.OwnsMany(i => i.Fields);
         }

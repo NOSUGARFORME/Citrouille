@@ -15,6 +15,7 @@ public class CollectionQueryService
     public Task<CollectionDto> GetById(Guid id)
     {
         return _collections
+            .Include(c => c.Fields)
             .Include(c => c.Items)
             .ThenInclude(i => i.Fields)
             .Include(c => c.Tags)

@@ -1,8 +1,6 @@
 namespace Citrouille.Infrastructure.Queries.Models;
 
-public class CollectionItemFieldDto
+public class CollectionItemFieldDto : CollectionFieldTemplateDto
 {
-    public string Name { get; set; }
-    public string Type { get; set; }
     public string Value { get; set; }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Citrouille.Data.Migrations
 {
     [DbContext(typeof(CollectionDbContext))]
-    [Migration("20220504192614_init")]
+    [Migration("20220505070907_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

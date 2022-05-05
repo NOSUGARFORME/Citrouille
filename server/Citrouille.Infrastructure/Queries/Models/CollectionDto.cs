@@ -8,4 +8,5 @@ public class CollectionDto
     public CollectionThemeDto Theme { get; set; } 
     public IEnumerable<TagDto> Tags { get; set; }
     public IEnumerable<CollectionItemDto> Items { get; set; }
+    public IEnumerable<CollectionFieldTemplateDto> Fields { get; set; }
 }
