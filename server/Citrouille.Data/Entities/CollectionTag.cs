@@ -10,6 +10,14 @@ public class CollectionTag
     public Collection Collection { get; set; }
     public Tag Tag { get; set; }
     
+    private CollectionTag() {}
+
+    internal CollectionTag(Collection collection, Tag tag)
+    {
+        Collection = collection;
+        Tag = tag;
+    }
+    
     internal sealed class Configuration : IEntityTypeConfiguration<CollectionTag>
     {
         public void Configure(EntityTypeBuilder<CollectionTag> builder)

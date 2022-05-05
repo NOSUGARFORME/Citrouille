@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Citrouille.Data.Migrations
 {
     [DbContext(typeof(CollectionDbContext))]
-    [Migration("20220505070907_init")]
+    [Migration("20220505130119_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,7 +89,7 @@ namespace Citrouille.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CollectionTheme", "CollectionSchema");
+                    b.ToTable("Themes", "CollectionSchema");
                 });
 
             modelBuilder.Entity("Citrouille.Data.Entities.Tag", b =>
@@ -103,7 +103,7 @@ namespace Citrouille.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tag", "CollectionSchema");
+                    b.ToTable("Tags", "CollectionSchema");
                 });
 
             modelBuilder.Entity("Citrouille.Data.Entities.Collection", b =>

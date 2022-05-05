@@ -10,11 +10,15 @@ public class Collection
     {
     }
     
-    public Collection(Guid id, string title, string description)
+    public Collection(Guid id, string title, string description, CollectionTheme theme, List<FieldTemplate> fields, List<Tag> tags)
     {
         Id = id;
         Title = title;
         Description = description;
+        Theme = theme;
+        Fields = fields;
+        
+        Tags = new List<CollectionTag>(tags.Select(t => new CollectionTag(this, t)));
     }
     
     public Guid Id { get; set; }

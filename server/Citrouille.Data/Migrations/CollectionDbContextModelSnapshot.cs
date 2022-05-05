@@ -87,7 +87,7 @@ namespace Citrouille.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CollectionTheme", "CollectionSchema");
+                    b.ToTable("Themes", "CollectionSchema");
                 });
 
             modelBuilder.Entity("Citrouille.Data.Entities.Tag", b =>
@@ -101,7 +101,7 @@ namespace Citrouille.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tag", "CollectionSchema");
+                    b.ToTable("Tags", "CollectionSchema");
                 });
 
             modelBuilder.Entity("Citrouille.Data.Entities.Collection", b =>
