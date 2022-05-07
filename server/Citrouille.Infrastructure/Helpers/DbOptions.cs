@@ -1,4 +1,4 @@
-namespace Citrouille.Infrastructure;
+namespace Citrouille.Infrastructure.Helpers;
 
 public class DbOptions
 {

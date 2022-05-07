@@ -1,0 +1,15 @@
+version: "3.8"
+services:    
+  api:
+    container_name: collections
+    build:
+      context: ./server
+      dockerfile: ./Citrouille.Api/Dockerfile
+    ports:
+      - "5001:80"
+    environment:
+      - MySql__ConnectionString=server=localhost;user=root;password=12345678;database=CollectionsDb;
+      - ElasticSearchConnection=http://elasticsearch:9200
+    restart: on-failure
+    
+    

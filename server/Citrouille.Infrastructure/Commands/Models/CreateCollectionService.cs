@@ -1,6 +1,8 @@
 using Citrouille.Data.Entities;
 using Citrouille.Infrastructure.Commands.Exceptions;
 using Citrouille.Infrastructure.Commands.Factories;
+using Citrouille.Infrastructure.Services.FullTextSearch;
+using Citrouille.Infrastructure.Services.Models;
 
 namespace Citrouille.Infrastructure.Commands.Models;
 
@@ -11,14 +13,16 @@ public class CreateCollectionService
     private readonly ICollectionReadService _readService;
     private readonly ICollectionThemeReadService _collectionThemeReadService;
     private readonly ICollectionTagReadService _collectionTagReadService;
+    private readonly IFullTextSearchService _fullTextSearch;
 
-    public CreateCollectionService(ICollectionReadService readService, ICollectionFactory factory, ICollectionCommandService repository, ICollectionThemeReadService collectionThemeReadService, ICollectionTagReadService collectionTagReadService)
+    public CreateCollectionService(ICollectionReadService readService, ICollectionFactory factory, ICollectionCommandService repository, ICollectionThemeReadService collectionThemeReadService, ICollectionTagReadService collectionTagReadService, IFullTextSearchService fullTextSearch)
     {
         _readService = readService;
         _factory = factory;
         _repository = repository;
         _collectionThemeReadService = collectionThemeReadService;
         _collectionTagReadService = collectionTagReadService;
+        _fullTextSearch = fullTextSearch;
     }
 
     public async Task CreateCollectionAsync(CreateCollection command)
@@ -40,6 +44,11 @@ public class CreateCollectionService
         var collection = _factory.Create(id, title, description, theme, fieldTemplates, tags.ToList());
 
         await _repository.CreateCollectionAsync(collection);
+        await _fullTextSearch.Index(new CollectionFullTextSearchModel
+        {
+            Id = collection.Id,
+            Description = collection.Description
+        });
     }
 
     private async Task<List<Tag>> GetTags(List<string> tagNames)
