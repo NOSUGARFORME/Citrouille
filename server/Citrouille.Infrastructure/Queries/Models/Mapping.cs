@@ -27,11 +27,7 @@ internal static class Mapping
                     Value = f.Value
                 })
             }),
-            Tags = value.Tags?.Select(t => new TagDto
-            {
-                Id = t.TagId,
-                Name = t.Tag.Name
-            }),
+            Tags = value.Tags?.Select(t => t.Tag.Name),
             Fields = value.Fields?.Select(f => new CollectionFieldTemplateDto
             {
                 Name = f.Name,

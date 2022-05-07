@@ -1,5 +1,6 @@
 using Citrouille.Infrastructure.Queries;
 using Citrouille.Infrastructure.Queries.Models;
+using Citrouille.Infrastructure.Queries.Models.Collections;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Citrouille.Api.Controllers;
@@ -19,5 +20,12 @@ public class CollectionsQueryController : BaseController
     {
         var result = await _handler.GetById(id);
         return OkOrNotFound(result);
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<CollectionDto>>> Get([FromQuery] CollectionQuery query)
+    {
+        var collections = await _handler.GetCollectionsByQuery(query);
+        return OkOrNotFound(collections);
     }
 }

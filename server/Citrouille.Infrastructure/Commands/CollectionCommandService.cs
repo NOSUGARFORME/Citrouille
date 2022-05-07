@@ -1,6 +1,8 @@
 using Citrouille.Data;
 using Citrouille.Data.Entities;
 using Citrouille.Infrastructure.Commands.Models;
+using Citrouille.Infrastructure.Services.FullTextSearch;
+using Citrouille.Infrastructure.Services.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Citrouille.Infrastructure.Commands;
@@ -8,10 +10,12 @@ namespace Citrouille.Infrastructure.Commands;
 public sealed class CollectionCommandService : ICollectionCommandService
 {
     private readonly CollectionDbContext _writeDbContext;
+    private readonly IFullTextSearchService _fullTextSearch;
 
-    public CollectionCommandService(CollectionDbContext writeDbContext)
+    public CollectionCommandService(CollectionDbContext writeDbContext, IFullTextSearchService fulltextSearch)
     {
         _writeDbContext = writeDbContext;
+        _fullTextSearch = fulltextSearch;
     }
 
     Task<Collection> GetAsync(Guid id)
@@ -51,6 +55,12 @@ public sealed class CollectionCommandService : ICollectionCommandService
 
         _writeDbContext.Collections.Update(collection);
         await _writeDbContext.SaveChangesAsync();
+        await _fullTextSearch.Update(new CollectionFullTextSearchModel
+            {
+                Id = collection.Id,
+                Description = collection.Description
+            },
+            collection.Id);
     }
 
     public async Task UpdateCollectionItemAsync(UpdateCollectionItem command)
@@ -75,6 +85,7 @@ public sealed class CollectionCommandService : ICollectionCommandService
 
         _writeDbContext.Collections.Remove(collection);
         await _writeDbContext.SaveChangesAsync();
+        await _fullTextSearch.Delete<CollectionFullTextSearchModel>(collection.Id);
     }
 
     public async Task RemoveCollectionItemAsync(RemoveCollectionItem command)
