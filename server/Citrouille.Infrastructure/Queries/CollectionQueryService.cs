@@ -4,7 +4,7 @@ using Citrouille.Data.Entities;
 using Citrouille.Infrastructure.Queries.Models;
 using Citrouille.Infrastructure.Queries.Models.Collections;
 using Citrouille.Infrastructure.Services.FullTextSearch;
-using Citrouille.Infrastructure.Services.Models;
+using Citrouille.Infrastructure.Services.FullTextSearch.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Citrouille.Infrastructure.Queries;

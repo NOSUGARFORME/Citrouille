@@ -2,7 +2,7 @@ using Citrouille.Data.Entities;
 using Citrouille.Infrastructure.Commands.Exceptions;
 using Citrouille.Infrastructure.Commands.Factories;
 using Citrouille.Infrastructure.Services.FullTextSearch;
-using Citrouille.Infrastructure.Services.Models;
+using Citrouille.Infrastructure.Services.FullTextSearch.Models;
 
 namespace Citrouille.Infrastructure.Commands.Models;
 

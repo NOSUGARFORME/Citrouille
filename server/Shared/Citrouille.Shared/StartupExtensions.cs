@@ -9,7 +9,7 @@ public static class StartupExtensions
 {
     public static IServiceCollection AddShared(this IServiceCollection services)
     {
-        services.AddHostedService<AppInitializer>();
+        // services.AddHostedService<AppInitializer>();
         services.AddScoped<ExceptionMiddleware>();
         return services;
     }

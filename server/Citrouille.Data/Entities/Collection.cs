@@ -29,24 +29,6 @@ public class Collection
     public List<CollectionTag> Tags { get; set; }
     public List<CollectionItem> Items { get; } = new();
     
-    internal sealed class Configuration : IEntityTypeConfiguration<Collection>
-    {
-        public void Configure(EntityTypeBuilder<Collection> builder)
-        {
-            builder.ToTable("Collections");
-            builder.HasKey(c => c.Id);
-        
-            builder.OwnsMany(c => c.Fields);
-            
-            builder
-                .HasMany(c => c.Items)
-                .WithOne(ci => ci.Collection);
-
-            builder
-                .HasOne(c => c.Theme)
-                .WithMany(t => t.Collections);
-        }
-    }
     public void ThrowIfInvalid()
     {
         if (Id == Guid.Empty)
@@ -78,6 +60,18 @@ public class Collection
             AddItem(item);
         }
     }
+
+    public void ChangeLikeItemStatus(string userId, string itemName)
+    {
+        var item = GetItem(itemName);
+        item.ChangeLikeStatus(userId);
+    }
+
+    public void CommentItem(string userId, string itemName, string comment)
+    {
+        var item = GetItem(itemName);
+        item.AddComment(userId, comment);
+    }
     
     public void RemoveItem(string itemName)
     {
@@ -95,5 +89,24 @@ public class Collection
         }
 
         return item;
+    }
+
+    internal sealed class Configuration : IEntityTypeConfiguration<Collection>
+    {
+        public void Configure(EntityTypeBuilder<Collection> builder)
+        {
+            builder.ToTable("Collections");
+            builder.HasKey(c => c.Id);
+        
+            builder.OwnsMany(c => c.Fields);
+            
+            builder
+                .HasMany(c => c.Items)
+                .WithOne(ci => ci.Collection);
+
+            builder
+                .HasOne(c => c.Theme)
+                .WithMany(t => t.Collections);
+        }
     }
 }
