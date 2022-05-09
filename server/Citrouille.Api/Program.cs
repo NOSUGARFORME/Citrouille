@@ -1,4 +1,3 @@
-using System.Reflection;
 using Citrouille.Infrastructure;
 using Citrouille.Shared;
 
@@ -6,9 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddShared();
-builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddApplication();
+builder.Services
+    .AddShared()
+    .AddInfrastructure(builder.Configuration)
+    .AddApplication();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -24,8 +24,19 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseShared();
 
+app.UseCors(options => options
+    .AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+
+
+
+app.UseAuthentication();
+app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.Initialize();
 
 app.Run();

@@ -7,7 +7,8 @@ public interface ICollectionCommandService
 {
     Task CreateCollectionAsync(Collection collection);
     Task AddCollectionItemAsync(AddCollectionItem command);
-    Task UpdateCollectionAsync(Collection collection); // ?
+    Task LikeItemAsync(LikeCollectionItem command);
+    Task CommentItemAsync(CommentCollectionItem command);
     Task UpdateCollectionItemAsync(UpdateCollectionItem command);
     Task RemoveCollectionAsync(RemoveCollection command);
     Task RemoveCollectionItemAsync(RemoveCollectionItem command);

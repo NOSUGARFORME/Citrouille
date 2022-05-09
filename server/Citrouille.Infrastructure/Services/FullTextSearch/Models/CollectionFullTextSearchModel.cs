@@ -1,4 +1,4 @@
-namespace Citrouille.Infrastructure.Services.Models;
+namespace Citrouille.Infrastructure.Services.FullTextSearch.Models;
 
 public class CollectionFullTextSearchModel
 {
